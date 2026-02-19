@@ -1,5 +1,5 @@
 /*
-Topic: Min Heap Implementation (Insert & Extract Operations)
+Topic: Min Heap Implementation (Insert ,Extract & Peek Operations)
 
 Description:
 This file contains a complete implementation of a Min Heap data structure.
@@ -17,6 +17,7 @@ Parent Index      = Math.floor((i - 1) / 2)
 Operations:
 Insert   → Adds element to heap
 Extract  → Removes and returns minimum element (root)
+Peek     → Return the minimum element(root)
 
 Time Complexity:
 Insert  → O(log n)
@@ -95,6 +96,10 @@ class MinHeap {
       [this.heap[smallest], this.heap[i]] = [this.heap[i], this.heap[smallest]];
       this.heapifyDown(smallest);
     }
+  }
+
+  peek() {
+    return this.heap.length ? this.heap[0] : null;
   }
 }
 
