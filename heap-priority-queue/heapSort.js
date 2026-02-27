@@ -30,23 +30,24 @@ let arr = [5, 8, 2, 6, 1, 9, 4];
 function heapSort(arr) {
   let n = arr.length;
 
-  // create a maxheap
-  for (let i = n - 1; i >= 0; i--) {
+  // Step 1: Build Max Heap
+  for (let i = Math.floor(n / 2) - 1; i >= 0; i--) {
     heapifyDown(arr, i, n);
   }
 
-  // sort the array
-  for (let i = Math.floor(n / 2 - 1); i >= 0; i--) {
+  // Step 2: Extract elements one by one
+  for (let i = n - 1; i > 0; i--) {
     [arr[0], arr[i]] = [arr[i], arr[0]];
     heapifyDown(arr, 0, i);
   }
+
   return arr;
 }
 
 function heapifyDown(arr, i, n) {
+  let largest = i;
   let leftChild = 2 * i + 1;
   let rightChild = 2 * i + 2;
-  let largest = i;
 
   if (leftChild < n && arr[leftChild] > arr[largest]) {
     largest = leftChild;
@@ -56,7 +57,7 @@ function heapifyDown(arr, i, n) {
     largest = rightChild;
   }
 
-  if (largest != i) {
+  if (largest !== i) {
     [arr[i], arr[largest]] = [arr[largest], arr[i]];
     heapifyDown(arr, largest, n);
   }
