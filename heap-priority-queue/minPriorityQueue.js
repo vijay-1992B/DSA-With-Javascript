@@ -97,4 +97,10 @@ class MinPriorityQueue {
   }
 }
 
+const obj = new MinPriorityQueue();
+
+console.log(obj.heap);
+
+
+
 module.exports = MinPriorityQueue;
